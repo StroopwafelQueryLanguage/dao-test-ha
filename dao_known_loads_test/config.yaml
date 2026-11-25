@@ -1,0 +1,38 @@
+name: "DAO Known Loads Test"
+version: "2026.11.1.rc3"
+slug: "dao_known_loads_test"
+description: "Testversie van DAO met known loads"
+url: "https://github.com/dewi-ny-je/day-ahead-plus"
+
+arch:
+  - amd64
+
+image: "ghcr.io/dewi-ny-je/dao"
+
+stage: experimental
+boot: manual
+init: false
+legacy: true
+
+ingress: true
+ingress_port: 5000
+ingress_entry: /v2/chart
+panel_icon: mdi:home-battery-outline
+panel_admin: false
+
+homeassistant_api: true
+
+map:
+  - addon_config:rw
+  - homeassistant_config:rw
+  - share:rw
+  - ssl:rw
+
+ports:
+  5000/tcp: null
+
+options:
+  use_self_compiled_miplib: false
+
+schema:
+  use_self_compiled_miplib: bool?
